@@ -11,7 +11,6 @@ class AlarmHelper {
     return data.map((map) => Map<String, dynamic>.from(map)).toList();
   }
 
-  // 2. دالة جدولة منبه "الوقت" (تم إصلاح ثغرة الثواني)
   static Future<void> scheduleTimeAlarm(int alarmId, String timeStr, String amPm, String ringtone, String title) async {
     List<String> parts = timeStr.split(':');
     int hour = int.parse(parts[0]);
@@ -26,7 +25,6 @@ class AlarmHelper {
     
     DateTime newAlarmTime = DateTime(now.year, now.month, now.day, hour, minute);
 
-    // 👇 نقارن بدون ثواني. إذا كان الوقت قديماً (مثلاً 10:29 ونحن 10:30)، نؤجله للغد
     if (newAlarmTime.isBefore(nowWithoutSeconds)) {
       newAlarmTime = newAlarmTime.add(const Duration(days: 1));
     }
@@ -37,7 +35,7 @@ class AlarmHelper {
       assetAudioPath: ringtone,
       loopAudio: true,
       vibrate: true,
-      volumeSettings: VolumeSettings.fixed(volume: 1.0),
+      volumeSettings: VolumeSettings.fixed(volume: 0.5),
       notificationSettings: NotificationSettings(
         title: '⏰ Wake Up!',
         body: title.isEmpty ? 'Your alarm is ringing' : title,

@@ -42,7 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   // =====================================
-  // 📍 عقل رادار الموقع (الذي يراقب حركتك)
   // =====================================
   void _startLocationRadar() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();

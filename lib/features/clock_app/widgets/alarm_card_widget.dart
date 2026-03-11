@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class AlarmCardWidget extends StatelessWidget {
   final String title;
-  final String time; // 👈 سيعرض الوقت (10:30) أو مسافة الموقع (500 متر)
+  final String time;  
   final String amPm; // سيكون فارغاً في حالة الموقع
   final String days;
   final bool isActive;
-  final bool isLocation; // 👈 المتغير السحري الجديد (افتراضياً false)
+  final bool isLocation; 
   final ValueChanged<bool> onToggle;
 
   const AlarmCardWidget({
@@ -17,7 +17,7 @@ class AlarmCardWidget extends StatelessWidget {
     required this.days,
     required this.isActive,
     required this.onToggle,
-    this.isLocation = false, // افتراضياً يعمل كمنبه وقت حتى لا نكسر شاشة الوقت القديمة
+    this.isLocation = false, 
   }) : super(key: key);
 
   @override
@@ -51,23 +51,21 @@ class AlarmCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.alphabetic,
                 children: [
-                  // 👇 عرض أيقونة موقع حمراء إذا كان منبه موقع
                   if (isLocation) 
                     const Icon(Icons.location_on, color: Colors.redAccent, size: 28),
                   if (isLocation) 
                     const SizedBox(width: 4),
 
                   Text(
-                    time, // سيعرض هنا الوقت أو مسافة الرادار
+                    time, 
                     style: TextStyle(
                       color: isActive ? Colors.white : Colors.grey,
-                      fontSize: isLocation ? 28 : 36, // نصغر الخط قليلاً للموقع ليناسب كلمة "متر"
+                      fontSize: isLocation ? 28 : 36,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(width: 4),
                   
-                  // 👇 إخفاء AM/PM تماماً إذا كان منبه موقع
                   if (!isLocation) 
                     Text(
                       amPm,

@@ -55,7 +55,6 @@ class _AddAlarmScreenState extends State<AddAlarmScreen> {
       MaterialPageRoute(builder: (context) => const AddLocationAlarmScreen()),
     );
     
-    // إذا قام المستخدم باختيار موقع ورجع
     if (result != null) {
       setState(() {
         _selectedLatitude = result['latitude'];
@@ -78,14 +77,13 @@ class _AddAlarmScreenState extends State<AddAlarmScreen> {
       // 1. حفظ منبه الوقت 
       await AlarmHelper.saveTimeAlarm({
         'time': _selectedTime,
-        'days': _selectedDays, // AlarmHelper يتعامل مع قائمة bool
+        'days': _selectedDays, 
         'title': finalTitle,
         'ringtone': _selectedRingtonePath,
       });
     } else {
       // 2. حفظ منبه الموقع
       if (_selectedLatitude == null) {
-        // تنبيه للمستخدم إذا نسي تحديد الموقع
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('الرجاء تحديد الموقع على الخريطة أولاً!', style: TextStyle(color: Colors.white)), backgroundColor: Colors.red),
         );
@@ -96,7 +94,7 @@ class _AddAlarmScreenState extends State<AddAlarmScreen> {
         'title': finalTitle,
         'time': '',
         'amPm': '',
-        'days': daysString, //  التعديل السحري: حفظ أيام التكرار هنا!
+        'days': daysString, 
         'isActive': 1,
         'ringtone': _selectedRingtonePath,
         'isLocation': 1,

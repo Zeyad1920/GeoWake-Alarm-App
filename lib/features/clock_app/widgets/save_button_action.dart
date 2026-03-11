@@ -21,7 +21,7 @@ class ButtonSaveAction extends StatelessWidget {
             'latitude': _selectedDestination!.latitude,
             'longitude': _selectedDestination!.longitude,
             'radius': _alarmRadius,
-            'title': 'المنبه الجغرافي', // يمكن تطويره لاحقاً لاختيار اسم
+            'title': 'المنبه الجغرافي', 
             'ringtone': 'assets/audio/alarm.mp3', // نغمة افتراضية
           });
         },

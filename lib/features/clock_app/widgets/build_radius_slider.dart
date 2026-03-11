@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BuildRadiusSlider  extends StatelessWidget {
-  final double alarmRadius; // 👈 نستقبل القيمة من الشاشة الأب
-  final ValueChanged<double> onChanged; // 👈 نستقبل دالة التحديث من الشاشة الأب
+  final double alarmRadius; // 
+  final ValueChanged<double> onChanged; 
 
   const BuildRadiusSlider({
     Key? key,

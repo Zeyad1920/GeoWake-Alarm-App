@@ -3,7 +3,6 @@ import 'package:latlong2/latlong.dart';
 
 class LocationHelper {
   
-  // 1. فحص الصلاحيات وجلب الموقع الحالي (يرجع الموقع أو null إذا فشل)
   static Future<LatLng?> getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) return null;

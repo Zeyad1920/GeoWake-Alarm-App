@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:alarm/alarm.dart';
-// لا تنسَ استدعاء مسار قاعدة البيانات الخاص بك هنا
 import 'package:clock_app/core/datebase/db_sql_lite.dart'; 
 
 class AlarmRingingDialog extends StatelessWidget {
-  final int alarmId; // رقم المنبه
-  final VoidCallback onAlarmStopped; // دالة سننفذها لتحديث الشاشة الرئيسية بعد الإيقاف
+  final int alarmId;
+  final VoidCallback onAlarmStopped; 
 
   const AlarmRingingDialog({
     Key? key,
@@ -34,7 +33,6 @@ class AlarmRingingDialog extends StatelessWidget {
               // تحديث قاعدة البيانات
               await DatabaseHelper.instance.updateAlarmStatus(alarmId, 0);
               
-              // 👇 استدعاء الدالة التي ستحدث الشاشة الرئيسية
               onAlarmStopped(); 
             }
           },
