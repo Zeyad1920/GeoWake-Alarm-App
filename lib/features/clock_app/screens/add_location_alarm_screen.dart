@@ -69,7 +69,7 @@ class _AddLocationAlarmScreenState extends State<AddLocationAlarmScreen> {
             children: [
               TileLayer(
                 urlTemplate:
-                    'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+                    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 userAgentPackageName: 'com.your_name.clock_app',
               ),
               if (_selectedDestination != null)
